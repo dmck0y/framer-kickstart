@@ -2,13 +2,18 @@
 # by Benjamin den Boer & Koen Bok
 # www.framerjs.com
 
+Framer.Device = new DeviceComponent({})
+Framer.Device.deviceType = 'google-nexus-4'
+
 # Variables
-listWidth = 320
-listHeight = 90
+listWidth = Framer.Device.screen.width - 80 
+listHeight = 130
 yDistance = listHeight + 10
 
-Framer.Screen.backgroundColor = "#eee"
+Framer.Device.screen.backgroundColor = '#eee'
 canvas = new Layer width:listWidth, height:400, backgroundColor: "transparent", clip:false
+canvas.parent = Framer.Device.screen
+
 canvas.x = Align.center 
 canvas.y = Align.center
 

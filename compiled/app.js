@@ -1,13 +1,17 @@
 (function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 var Layers, canvas, getFrameByIndex, getIndexByFrame, i, j, layer, layerAtIndex, listHeight, listWidth, yDistance;
 
-listWidth = 320;
+Framer.Device = new DeviceComponent({});
 
-listHeight = 90;
+Framer.Device.deviceType = 'google-nexus-4';
+
+listWidth = Framer.Device.screen.width - 80;
+
+listHeight = 130;
 
 yDistance = listHeight + 10;
 
-Framer.Screen.backgroundColor = "#eee";
+Framer.Device.screen.backgroundColor = '#eee';
 
 canvas = new Layer({
   width: listWidth,
@@ -15,6 +19,8 @@ canvas = new Layer({
   backgroundColor: "transparent",
   clip: false
 });
+
+canvas.parent = Framer.Device.screen;
 
 canvas.x = Align.center;
 
